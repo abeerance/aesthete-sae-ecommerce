@@ -16,7 +16,7 @@ export class UsersService {
 
   // get user by id
   async getUserById(id: string) {
-    const user = await this.prisma.user.findUnique({
+    const user = await this.prisma.users.findUnique({
       where: { id: id },
       select: {
         id: true,
@@ -43,7 +43,7 @@ export class UsersService {
 
   // get all users
   async getUsers() {
-    return await this.prisma.user.findMany({
+    return await this.prisma.users.findMany({
       select: {
         id: true,
         email: true,
@@ -57,7 +57,7 @@ export class UsersService {
 
   // get current authenticated user
   async getAuthenticatedUser(id: string) {
-    const user = await this.prisma.user.findUnique({
+    const user = await this.prisma.users.findUnique({
       where: { id: id },
       select: {
         id: true,
@@ -96,7 +96,7 @@ export class UsersService {
     const userId = req.user.id;
 
     // get user from the database
-    const user = await this.prisma.user.findUnique({ where: { id: id } });
+    const user = await this.prisma.users.findUnique({ where: { id: id } });
 
     // if no user is found, throw an error
     if (!user) {
@@ -150,7 +150,7 @@ export class UsersService {
 
     // check if user is trying to update the username
     if (updateUserDto.username) {
-      const existingUsername = await this.prisma.user.findUnique({
+      const existingUsername = await this.prisma.users.findUnique({
         where: { username: updateUserDto.username },
       });
 
@@ -194,7 +194,7 @@ export class UsersService {
 
     // check if user is trying to update the email
     if (updateUserDto.email) {
-      const existingEmail = await this.prisma.user.findUnique({
+      const existingEmail = await this.prisma.users.findUnique({
         where: { email: updateUserDto.email },
       });
 
@@ -206,7 +206,7 @@ export class UsersService {
     }
 
     // update the user
-    const updateUser = await this.prisma.user.update({
+    const updateUser = await this.prisma.users.update({
       where: {
         id: id,
       },
@@ -226,7 +226,7 @@ export class UsersService {
   // delete user
   async deleteUser(id: string, req: CustomRequest, res: Response) {
     // get user from the database
-    const user = await this.prisma.user.findUnique({ where: { id: id } });
+    const user = await this.prisma.users.findUnique({ where: { id: id } });
 
     // check if user is the user
     if (req.user.id === user.id) {
@@ -240,21 +240,21 @@ export class UsersService {
       }
 
       // delete related goals before deleting the user
-      await this.prisma.order.deleteMany({
+      await this.prisma.orders.deleteMany({
         where: {
           userId: id,
         },
       });
 
       // delete related tasks before deleting the user
-      await this.prisma.cartItem.deleteMany({
+      await this.prisma.cartItems.deleteMany({
         where: {
           userId: id,
         },
       });
 
       // delete user
-      const deleteUser = await this.prisma.user.delete({
+      const deleteUser = await this.prisma.users.delete({
         where: {
           id: id,
         },

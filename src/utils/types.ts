@@ -1,17 +1,17 @@
-import { CartItem, OrderItem } from '@prisma/client';
+import { CartItems, OrderItems } from '@prisma/client';
 
-export type User = {
+export type ExtendedUser = {
   id: string;
   email: string;
   username: string;
   avatarUrl: string;
-  cartItem: CartItem[];
-  orderItem: OrderItem[];
+  cartItem: CartItems[];
+  orderItem: OrderItems[];
   exp?: number;
 };
 
 export interface CustomRequest extends Request {
-  user: User;
+  user: ExtendedUser;
 }
 
 export type UserPayload = {

@@ -5,12 +5,11 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User as PrismaUser } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 import { Response } from 'express';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { jwtRefreshTokenSecret, jwtSecret } from 'src/utils/constants';
-import { User, UserPayload } from 'src/utils/types';
+import { ExtendedUser, UserPayload } from 'src/utils/types';
 import { CreateUserDto, LoginUserDto } from './dto/auth.dto';
 
 @Injectable()
@@ -20,23 +19,41 @@ export class AuthService {
   // validateUser
   async validateUser(
     payload: Partial<LoginUserDto>,
-  ): Promise<Partial<LoginUserDto>> {
-    return await this.prisma.user.findUnique({
+  ): Promise<ExtendedUser | null> {
+    const user = await this.prisma.users.findUnique({
       where: { username: payload.username },
     });
+
+    // if user found
+    if (user) {
+      return {
+        ...user,
+        cartItem: [],
+        orderItem: [],
+      };
+    }
   }
 
   // validateRefreshToken
   async validateRefreshToken(
     payload: Partial<UserPayload>,
-  ): Promise<PrismaUser> {
-    return await this.prisma.user.findUnique({
+  ): Promise<ExtendedUser | null> {
+    const user = await this.prisma.users.findUnique({
       where: { id: payload.id },
     });
+
+    // if user found
+    if (user) {
+      return {
+        ...user,
+        cartItem: [],
+        orderItem: [],
+      };
+    }
   }
 
   // refreshToken logic
-  async refreshToken(user: User) {
+  async refreshToken(user: ExtendedUser) {
     // check if the token is expired
     const now = Math.floor(Date.now() / 1000);
     if (user.exp && user.exp <= now) {
@@ -61,7 +78,7 @@ export class AuthService {
     const { username, email, password } = dto;
 
     // check if email already exists
-    const emailAlreadyExists = await this.prisma.user.findUnique({
+    const emailAlreadyExists = await this.prisma.users.findUnique({
       where: { email: email },
     });
     if (emailAlreadyExists) {
@@ -71,7 +88,7 @@ export class AuthService {
     }
 
     // check if user already exists
-    const userAlreadyExists = await this.prisma.user.findUnique({
+    const userAlreadyExists = await this.prisma.users.findUnique({
       where: { username: username },
     });
     if (userAlreadyExists) {
@@ -84,7 +101,7 @@ export class AuthService {
     const hashedPassword = await this.hashPassword(password);
 
     // create user with prisma
-    await this.prisma.user.create({
+    await this.prisma.users.create({
       data: { username, email, password: hashedPassword },
     });
 
@@ -96,7 +113,7 @@ export class AuthService {
     const { username, password } = dto;
 
     // check if user already exists
-    const userExists = await this.prisma.user.findUnique({
+    const userExists = await this.prisma.users.findUnique({
       where: { username: username },
     });
     if (!userExists) {

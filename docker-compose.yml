@@ -2,22 +2,29 @@ version: '3.8'
 
 services:
   nestjs-server:
-    build: .
+    build:
+      context: .
+      target: production
     ports:
       - '3000:3000'
     depends_on:
       - aesthete-db
     environment:
-      - DATABASE_URL=postgresql://postgres:SAEZurich2023@aesthete-db:5432/aesthete-db
-    command: ['yarn', 'run', 'start:prod']
+      DATABASE_URL: 'postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@aesthete-db:5432/${POSTGRES_DB}'
+    command:
+      [
+        'sh',
+        '-c',
+        'yarn install && yarn prisma generate && yarn prisma db push && yarn run start:dev',
+      ]
 
   aesthete-db:
     image: postgres:13.5
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=SAEZurich2023
-      - POSTGRES_DB=aesthete-db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
