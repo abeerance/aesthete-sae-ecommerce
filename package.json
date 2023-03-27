@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "NODE_OPTIONS='--max-old-space-size=750' nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -30,6 +30,7 @@
     "@types/multer": "^1.4.7",
     "aws-sdk": "^2.1343.0",
     "bcrypt": "^5.1.0",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "cookie-parser": "^1.4.6",
     "multer": "^1.4.5-lts.1",
