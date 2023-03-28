@@ -9,37 +9,58 @@ const Navbar: React.FC = () => {
   const router = useRouter();
 
   return (
-    <Box
-      bg='white'
-      borderBottom='1px solid'
-      borderBottomColor='gray.200'
-      py={3}
-      position='relative'
-      height='70px'
-      display='flex'
-      justifyContent='space-around'
-      alignItems='center'
-    >
-      <Center ml='40px'>
-        <NavLink href='/new-arrivals'>New Arrivals</NavLink>
-        <NavLink href='/shoes'>Shoes</NavLink>
-        <NavLink href='/apparel'>Apparel & More</NavLink>
-        <NavLink href='/accessories'>Accessories</NavLink>
-      </Center>
-      <Spacer />
-      <Center position='absolute'>
-        <Link onClick={() => router.push("/")}>
-          <AestheteLogo />
-        </Link>
-      </Center>
-      <Spacer />
-      <Flex mr='40px'>
-        <Center>
-          <Icon as={AiOutlineUser} w={34} h={31} ml='12px' cursor='pointer' />
-          <Icon as={IoCartOutline} w={34} h={31} ml='12px' cursor='pointer' />
+    <header>
+      <Box
+        bg='white'
+        borderBottom='1px solid'
+        borderBottomColor='gray.200'
+        py={3}
+        position='relative'
+        height='70px'
+        display='flex'
+        justifyContent='space-around'
+        alignItems='center'
+      >
+        <nav>
+          <Center ml='40px'>
+            <ul
+              style={{
+                listStyleType: "none",
+                margin: 0,
+                padding: 0,
+                display: "flex",
+              }}
+            >
+              <li>
+                <NavLink href='/new-arrivals'>New Arrivals</NavLink>
+              </li>
+              <li>
+                <NavLink href='/shoes'>Shoes</NavLink>
+              </li>
+              <li>
+                <NavLink href='/apparel'>Apparel & More</NavLink>
+              </li>
+              <li>
+                <NavLink href='/accessories'>Accessories</NavLink>
+              </li>
+            </ul>
+          </Center>
+        </nav>
+        <Spacer />
+        <Center position='absolute'>
+          <Link onClick={() => router.push("/")}>
+            <AestheteLogo />
+          </Link>
         </Center>
-      </Flex>
-    </Box>
+        <Spacer />
+        <Flex mr='40px'>
+          <Center>
+            <Icon as={AiOutlineUser} w={34} h={31} ml='12px' cursor='pointer' />
+            <Icon as={IoCartOutline} w={34} h={31} ml='12px' cursor='pointer' />
+          </Center>
+        </Flex>
+      </Box>
+    </header>
   );
 };
 
