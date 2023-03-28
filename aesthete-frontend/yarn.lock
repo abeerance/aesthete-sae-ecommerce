@@ -991,6 +991,21 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.36.0.tgz#9837f768c03a1e4a30bd304a64fb8844f0e72efe"
   integrity sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==
 
+"@fontsource/inter@^4.5.15":
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.15.tgz#eed1873d68755d3b52d6fcfcfa3493118430a512"
+  integrity sha512-FzleM9AxZQK2nqsTDtBiY0PMEVWvnKnuu2i09+p6DHvrHsuucoV2j0tmw+kAT3L4hvsLdAIDv6MdGehsPIdT+Q==
+
+"@fontsource/montserrat@^4.5.14":
+  version "4.5.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.14.tgz#5f4bfc5e7f234a986d94d9e7e7193f852e6971e3"
+  integrity sha512-fTvrteVzuFUePhr4QYBGoK8G/YHLJ3IhF1HhKg0AxcFvZajJT7rM7ULdmKLSd2PkX44R3aaFZq1zDbmjbGGI+w==
+
+"@fontsource/yeseva-one@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/yeseva-one/-/yeseva-one-4.5.10.tgz#b7cd2dac86e946476840b249a4ecd5c7fa9fe2ec"
+  integrity sha512-W+cylFcTAS5bqtQA/tg5jecOLcA4fl82AbxItToJFReei4fq7GoHCBLgLohMQxr4rXvTe4zBmPIWd0jy8Ceorw==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
