@@ -32,16 +32,24 @@ const Navbar: React.FC = () => {
               }}
             >
               <li>
-                <NavLink href='/new-arrivals'>New Arrivals</NavLink>
+                <NavLink mRight={true} href='/new-arrivals'>
+                  New
+                </NavLink>
               </li>
               <li>
-                <NavLink href='/shoes'>Shoes</NavLink>
+                <NavLink mRight={true} href='/shoes'>
+                  Shoes
+                </NavLink>
               </li>
               <li>
-                <NavLink href='/apparel'>Apparel & More</NavLink>
+                <NavLink mRight={true} href='/apparel'>
+                  Apparel
+                </NavLink>
               </li>
               <li>
-                <NavLink href='/accessories'>Accessories</NavLink>
+                <NavLink mRight={true} href='/accessories'>
+                  Accessories
+                </NavLink>
               </li>
             </ul>
           </Center>
@@ -55,6 +63,15 @@ const Navbar: React.FC = () => {
         <Spacer />
         <Flex mr='40px'>
           <Center>
+            <NavLink mRight={false} href='/about'>
+              About
+            </NavLink>
+            <NavLink mRight={false} href='/search'>
+              Search
+            </NavLink>
+            <NavLink mRight={false} href='/faq'>
+              FAQ
+            </NavLink>
             <Icon as={AiOutlineUser} w={34} h={31} ml='12px' cursor='pointer' />
             <Icon as={IoCartOutline} w={34} h={31} ml='12px' cursor='pointer' />
           </Center>
