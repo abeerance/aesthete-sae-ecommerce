@@ -32,24 +32,20 @@ const Navbar: React.FC = () => {
               }}
             >
               <li>
-                <NavLink mRight={true} href='/new-arrivals'>
-                  New
-                </NavLink>
+                <NavLink mRight={true} href='/new-arrivals' title='New' />
               </li>
               <li>
-                <NavLink mRight={true} href='/shoes'>
-                  Shoes
-                </NavLink>
+                <NavLink mRight={true} href='/shoes' title='Shoes' />
               </li>
               <li>
-                <NavLink mRight={true} href='/apparel'>
-                  Apparel
-                </NavLink>
+                <NavLink mRight={true} href='/apparel' title='Apparel' />
               </li>
               <li>
-                <NavLink mRight={true} href='/accessories'>
-                  Accessories
-                </NavLink>
+                <NavLink
+                  mRight={true}
+                  href='/accessories'
+                  title='Accessories'
+                />
               </li>
             </ul>
           </Center>
@@ -63,15 +59,9 @@ const Navbar: React.FC = () => {
         <Spacer />
         <Flex mr='40px'>
           <Center>
-            <NavLink mRight={false} href='/about'>
-              About
-            </NavLink>
-            <NavLink mRight={false} href='/search'>
-              Search
-            </NavLink>
-            <NavLink mRight={false} href='/faq'>
-              FAQ
-            </NavLink>
+            <NavLink mRight={false} href='/about' title='About' />
+            <NavLink mRight={false} href='/search' title='Search' />
+            <NavLink mRight={false} href='/faq' title='FAQ' />
             <Icon as={AiOutlineUser} w={34} h={31} ml='12px' cursor='pointer' />
             <Icon as={IoCartOutline} w={34} h={31} ml='12px' cursor='pointer' />
           </Center>

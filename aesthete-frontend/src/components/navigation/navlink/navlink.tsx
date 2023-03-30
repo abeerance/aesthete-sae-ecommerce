@@ -1,17 +1,13 @@
-import { Link, LinkProps } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 type NavLinkProps = {
+  title: string;
   href: string;
   mRight: boolean;
-} & LinkProps;
+};
 
-const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  children,
-  mRight,
-  ...props
-}) => {
+const NavLink: React.FC<NavLinkProps> = ({ title, href, mRight }) => {
   const router = useRouter();
 
   return (
@@ -25,9 +21,8 @@ const NavLink: React.FC<NavLinkProps> = ({
       textTransform='uppercase'
       fontWeight={600}
       onClick={() => router.push(href)}
-      {...props}
     >
-      {children}
+      {title}
     </Link>
   );
 };

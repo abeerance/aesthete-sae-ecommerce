@@ -29,34 +29,8 @@ const Footer: React.FC = () => {
           gap={8}
         >
           <GridItem>
-            <Heading fontSize='lg' mb={4}>
-              Shop
-            </Heading>
-            <Link display='block' mb={2} onClick={() => router.push("/men")}>
-              Men
-            </Link>
-            <Link display='block' mb={2} onClick={() => router.push("/women")}>
-              Women
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Heading fontSize='lg' mb={4}>
-              About
-            </Heading>
-            <Link display='block' mb={2} onClick={() => router.push("/about")}>
-              Our Story
-            </Link>
-            <Link
-              display='block'
-              mb={2}
-              onClick={() => router.push("/sustainability")}
-            >
-              Sustainability
-            </Link>
-          </GridItem>
-          <GridItem>
-            <Heading fontSize='lg' mb={4}>
-              Help
+            <Heading fontSize='lg' mb={4} fontWeight={700}>
+              HELP
             </Heading>
             <Link display='block' mb={2} onClick={() => router.push("/faq")}>
               FAQ
@@ -70,20 +44,32 @@ const Footer: React.FC = () => {
             </Link>
           </GridItem>
           <GridItem>
-            <Heading fontSize='lg' mb={4}>
-              Legal
+            <Heading fontSize='lg' mb={4} fontWeight={700}>
+              SHOP
             </Heading>
+            <Link display='block' mb={2} onClick={() => router.push("/men")}>
+              Men
+            </Link>
+            <Link display='block' mb={2} onClick={() => router.push("/women")}>
+              Women
+            </Link>
+          </GridItem>
+          <GridItem>
+            <Heading fontSize='lg' mb={4} fontWeight={700}>
+              COMPANY
+            </Heading>
+            <Link display='block' mb={2} onClick={() => router.push("/about")}>
+              Our Story
+            </Link>
             <Link
               display='block'
               mb={2}
-              onClick={() => router.push("/privacy")}
+              onClick={() => router.push("/sustainability")}
             >
-              Privacy Policy
-            </Link>
-            <Link display='block' mb={2} onClick={() => router.push("/terms")}>
-              Terms & Conditions
+              Sustainability
             </Link>
           </GridItem>
+          <GridItem />
         </Grid>
         <Flex
           mt={12}
