@@ -6,15 +6,12 @@ import {
   Grid,
   GridItem,
   Heading,
-  Link,
   Text,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import React from "react";
+import FooterLink from "./footerlink/footerlink";
 
 const Footer: React.FC = () => {
-  const router = useRouter();
-
   return (
     <Box width='100%' color='#f8f8f8' bg='#212A2F' py='100px'>
       <Box
@@ -32,47 +29,26 @@ const Footer: React.FC = () => {
             <Heading fontSize='lg' mb={4} fontWeight={700}>
               HELP
             </Heading>
-            <Link display='block' mb={2} onClick={() => router.push("/faq")}>
-              FAQ
-            </Link>
-            <Link
-              display='block'
-              mb={2}
-              onClick={() => router.push("/contact-us")}
-            >
-              Contact Us
-            </Link>
+            <FooterLink title='FAQ' href='/faq' />
+            <FooterLink title='Contact Us' href='/contact-us' />
           </GridItem>
           <GridItem>
             <Heading fontSize='lg' mb={4} fontWeight={700}>
               SHOP
             </Heading>
-            <Link display='block' mb={2} onClick={() => router.push("/men")}>
-              Men
-            </Link>
-            <Link display='block' mb={2} onClick={() => router.push("/women")}>
-              Women
-            </Link>
+            <FooterLink title='Men' href='/men' />
+            <FooterLink title='Women' href='/women' />
           </GridItem>
           <GridItem>
             <Heading fontSize='lg' mb={4} fontWeight={700}>
               COMPANY
             </Heading>
-            <Link display='block' mb={2} onClick={() => router.push("/about")}>
-              Our Story
-            </Link>
-            <Link
-              display='block'
-              mb={2}
-              onClick={() => router.push("/sustainability")}
-            >
-              Sustainability
-            </Link>
+            <FooterLink title='Our Story' href='/about' />
           </GridItem>
           <GridItem />
         </Grid>
         <Flex
-          mt={12}
+          mt={100}
           justifyContent='center'
           alignItems='center'
           flexDirection={{ base: "column", md: "row" }}

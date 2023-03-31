@@ -1,5 +1,5 @@
-import Footer from "@/components/common/footer/footer";
 import WebappHead from "@/components/common/head/head";
+import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navigation/navbar";
 import "@/styles/globals.css";
 import { ChakraProvider, extendTheme, Flex } from "@chakra-ui/react";
