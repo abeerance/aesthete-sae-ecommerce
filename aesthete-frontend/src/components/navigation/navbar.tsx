@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Icon, Link, Spacer } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Icon, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoCartOutline } from "react-icons/io5";
@@ -17,55 +17,89 @@ const Navbar: React.FC = () => {
         py={3}
         position='relative'
         height='70px'
-        display='flex'
+        width='100%'
         justifyContent='space-around'
         alignItems='center'
       >
-        <nav>
-          <Center ml='40px'>
-            <ul
-              style={{
-                listStyleType: "none",
-                margin: 0,
-                padding: 0,
-                display: "flex",
-              }}
-            >
-              <li>
-                <NavLink mRight={true} href='/new-arrivals' title='New' />
-              </li>
-              <li>
-                <NavLink mRight={true} href='/shoes' title='Shoes' />
-              </li>
-              <li>
-                <NavLink mRight={true} href='/apparel' title='Apparel' />
-              </li>
-              <li>
-                <NavLink
-                  mRight={true}
-                  href='/accessories'
-                  title='Accessories'
-                />
-              </li>
-            </ul>
-          </Center>
+        <nav style={{ height: "100%" }}>
+          <Grid
+            height='100%'
+            width='100%'
+            alignItems='center'
+            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
+          >
+            <GridItem ml='40px'>
+              <ul
+                style={{
+                  listStyleType: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                }}
+              >
+                <li>
+                  <NavLink mRight={true} href='/new-arrivals' title='New' />
+                </li>
+                <li>
+                  <NavLink mRight={true} href='/shoes' title='Shoes' />
+                </li>
+                <li>
+                  <NavLink mRight={true} href='/apparel' title='Apparel' />
+                </li>
+                <li>
+                  <NavLink
+                    mRight={true}
+                    href='/accessories'
+                    title='Accessories'
+                  />
+                </li>
+              </ul>
+            </GridItem>
+            <GridItem justifySelf='center'>
+              <Link onClick={() => router.push("/")}>
+                <AestheteLogo />
+              </Link>
+            </GridItem>
+            <GridItem mr='40px' justifySelf='end'>
+              <ul
+                style={{
+                  listStyleType: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
+                }}
+              >
+                <li>
+                  <NavLink mRight={false} href='/about' title='About' />
+                </li>
+                <li>
+                  <NavLink mRight={false} href='/search' title='Search' />
+                </li>
+                <li>
+                  <NavLink mRight={false} href='/faq' title='FAQ' />
+                </li>
+                <li>
+                  <Icon
+                    as={AiOutlineUser}
+                    w={34}
+                    h={31}
+                    ml='12px'
+                    cursor='pointer'
+                  />
+                </li>
+                <li>
+                  <Icon
+                    as={IoCartOutline}
+                    w={34}
+                    h={31}
+                    ml='12px'
+                    cursor='pointer'
+                  />
+                </li>
+              </ul>
+            </GridItem>
+          </Grid>
         </nav>
-        <Spacer />
-        <Center position='absolute'>
-          <Link onClick={() => router.push("/")}>
-            <AestheteLogo />
-          </Link>
-        </Center>
-        <Spacer />
-        <Flex mr='40px'>
-          <Center>
-            <NavLink mRight={false} href='/about' title='About' />
-            <NavLink mRight={false} href='/search' title='Search' />
-            <NavLink mRight={false} href='/faq' title='FAQ' />
-            <Icon as={AiOutlineUser} w={34} h={31} ml='12px' cursor='pointer' />
-            <Icon as={IoCartOutline} w={34} h={31} ml='12px' cursor='pointer' />
-          </Center>
-        </Flex>
       </Box>
     </header>
   );
