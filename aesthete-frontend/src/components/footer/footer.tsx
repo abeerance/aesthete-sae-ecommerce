@@ -1,15 +1,7 @@
-// components/Footer.tsx
-import {
-  Box,
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import React from "react";
-import FooterLink from "./footerlink/footerlink";
+import FooterHeading from "./footer-heading/footer-heading";
+import FooterLink from "./footer-link/footer-link";
 
 const Footer: React.FC = () => {
   return (
@@ -26,24 +18,20 @@ const Footer: React.FC = () => {
           gap={8}
         >
           <GridItem>
-            <Heading fontSize='lg' mb={4} fontWeight={700}>
-              HELP
-            </Heading>
+            <FooterHeading title='HELP' />
             <FooterLink title='FAQ' href='/faq' />
             <FooterLink title='Contact Us' href='/contact-us' />
           </GridItem>
           <GridItem>
-            <Heading fontSize='lg' mb={4} fontWeight={700}>
-              SHOP
-            </Heading>
-            <FooterLink title='Men' href='/men' />
-            <FooterLink title='Women' href='/women' />
+            <FooterHeading title='SHOP' />
+            <FooterLink title='New' href='/new' />
+            <FooterLink title='Shoes' href='/shoes' />
+            <FooterLink title='Apparel' href='/apparel' />
+            <FooterLink title='Accessories' href='/accessories' />
           </GridItem>
           <GridItem>
-            <Heading fontSize='lg' mb={4} fontWeight={700}>
-              COMPANY
-            </Heading>
-            <FooterLink title='Our Story' href='/about' />
+            <FooterHeading title='COMPANY' />
+            <FooterLink title='About' href='/about' />
           </GridItem>
           <GridItem />
         </Grid>
