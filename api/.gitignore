@@ -94,6 +94,8 @@ logs
 results
 node_modules
 .node_history
+certs
+certs/*
 
 ############################
 # Tests
@@ -113,3 +115,4 @@ exports
 dist
 build
 .strapi-updater.json
+
